@@ -21,14 +21,17 @@ Source (CSV — Kaggle)
 ┌────────────────────────────────────────────────────────────┐
 │                        DATA LAKE                           │
 │                                                            │
-│  S3 Raw ──► Glue Crawler ──► Glue Data Catalog            │
-│     │                               ▲                     │
-│     ▼                               │                     │
-│  Glue ETL Job (nettoyage + Parquet) │                     │
-│     │                               │                     │
-│     ▼                               │                     │
-│  S3 Processed ──► Glue Job ──► S3 Curated                 │
-│                  Partition    Glue Crawler ────────────────┘
+│  S3 Raw ──► Glue Crawler (Raw) ──► Glue Data Catalog  ◄─┐  │
+│     │                                                   │  │
+│     ▼                                                   │  │
+│  Glue ETL Job (nettoyage + Parquet)                     │  │
+│     │                                                   │  │
+│     ▼                                                   │  │
+│  S3 Processed ──► Glue Job (Partition)                  │  │
+│                        │                                │  │
+│                        ▼                                │  │
+│                   S3 Curated ──► Glue Crawler (Curated) ┘  │
+│                                                            │
 └────────────────────────────────────────────────────────────┘
         │
         ▼
