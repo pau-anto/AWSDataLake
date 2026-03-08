@@ -172,7 +172,6 @@ datalake-athena-results-dev-groupe1/
 | **Amazon Athena** | Requêtes SQL sans serveur sur S3 |
 | **Amazon QuickSight** | Dashboards et visualisation |
 | **AWS IAM** | Gestion des accès et sécurité |
-| **AWS CloudTrail** | Audit et journalisation des actions |
 | **AWS CloudFormation** | Infrastructure as Code |
 
 ---
