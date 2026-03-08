@@ -35,3 +35,48 @@ Ce document décrit les datasets utilisés dans le projet, avec le nom de chaque
 | mental_vs_physical               | String   | Priorité accordée à la santé mentale vs physique dans l’entreprise |
 | obs_consequence                  | String   | Conséquences observées pour demander de l’aide (ex : none, negative, positive) |
 | comments                         | String   | Commentaires libres du participant |
+
+---
+
+## Dataset : Mental_Health_Lifestyle_Dataset.csv
+
+| Column Name                 | Type      | Description |
+|------------------------------|----------|-------------|
+| Country                      | String   | Pays de résidence du répondant |
+| Age                    | String   | Tranche d’âge du répondant  |
+| Gender                       | String   | Identité de genre de l’individu |
+| Exercise Level                 | String   | Fréquence et intensité de l’activité physique |
+| Diet Type                | String   | Type de régime suivi (ex. : Végétarien, Végétalien, Équilibré) |
+| Sleep Hours                  | Float    | Nombre moyen d’heures de sommeil par jour |
+| Stress Level                 | Integer  | Niveau de stress auto-évalué  |
+| Mental Health Condition                | String | Affection mentale diagnostiquée (ex. : Anxiété, Dépression) |
+| Work Hours per Week           | Integer  | Nombre moyen d’heures travaillées par semaine |
+| Screen Time per Day (Hours)    | Float   | Temps moyen passé devant un écran par jour (en heures) |
+| Social Interaction Score               | Float  | Indice d’interaction sociale (1-10) |
+| Happiness Score              | Float  | Indice de bonheur général (1-10) |
+
+---
+
+## Dataset : mental_health_diagnosis_treatment_.csv
+
+| Column Name                   | Type      | Description |
+|--------------------------------|----------|-------------|
+| Patient ID                     | String   | Identifiant unique du patient |
+| Age                            | Integer  | Âge du patient |
+| Gender                         | String   | Sexe du patient (Male/Female) |
+| Diagnosis                       | String   | Trouble de santé mentale diagnostiqué (ex : Anxiety, Depression) |
+| Symptom Severity (1-10)         | Integer  | Gravité des symptômes (1-10) |
+| Mood Score (1-10)               | Integer  | Note d’humeur pendant le traitement (1-10) |
+| Sleep Quality (1-10)            | Integer  | Qualité du sommeil auto-déclarée (1-10) |
+| Physical Activity                | Float    | Heures d’activité physique par semaine |
+| Medication                       | String   | Médicaments prescrits (ex : SSRIs, Antidepressants) |
+| Therapy Type                     | String   | Type de thérapie (ex : CBT, DBT) |
+| Treatment Start Date             | Date     | Date de début du traitement |
+| Treatment Duration               | Integer  | Durée du traitement en semaines |
+| Stress Level (1-10)              | Integer  | Niveau de stress du patient (1-10) |
+| Outcome                          | String   | Résultat du traitement (ex : Improved, Deteriorated) |
+| Treatment Progress (1-10)        | Integer  | Progression observée pendant le traitement (1-10) |
+| AI-Detected Emotional State      | String   | État émotionnel détecté par l’IA (ex : Happy, Anxious) |
+| Adherence to Treatment (%)       | Float    | Pourcentage de respect du plan de traitement |
+
+---
