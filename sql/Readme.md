@@ -4,7 +4,7 @@ Ce dossier contient les requêtes SQL exécutées sur Amazon Athena.
 
 ---
 
-## 🎯 Objectif
+## Objectif
 
 Interroger les données du bucket S3 Curated via **Amazon Athena**
 pour calculer des KPIs sur la santé mentale et alimenter les
