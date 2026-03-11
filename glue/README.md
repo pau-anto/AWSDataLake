@@ -37,9 +37,9 @@ Après l'exécution du crawler, aller dans **Glue → Data Catalog → Tables** 
 2. Choisie **Query your data in Athena console**  → **Lunch query editor** → **Edit settings** → **Manage query settings**
 3. **Path** → `s3://datalake-athena-results-dev-groupe1/`
 4. Dans **Editor** tester la requête suivante:
-```sql
-    SELECT *
-    FROM survey
-    LIMIT 10;
+    ```sql
+        SELECT *
+        FROM survey
+        LIMIT 10;
 
 ---
