@@ -30,6 +30,9 @@ Après l'exécution du crawler, aller dans **Glue → Data Catalog → Tables** 
 | `mental_health_lifestyle_dataset` | year, stress_level, sleep_hours... | string, int, double |
 | `mental_health_diagnosis_treatment_` | diagnosis, treatment, age... | string, int |
 
+> ⚠️ Si Glue détecte un mauvais type (ex: une date comme string), le noter
+> dans le Data Dictionary — P3 devra corriger ça dans le Glue ETL Job.
+
 ---
 ### Étape 3 — test
 
