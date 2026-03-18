@@ -1,3 +1,6 @@
+# cfn-lint: disable=E1010,E1019
+
+
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >
   Infrastructure Data Lake AWS - Groupe 4
@@ -17,11 +20,15 @@ Parameters:
     Type: String
     Default: dev
     Description: Environnement (dev, prod...)
-
-  GroupName:
+  
+  RawBucketArn:
     Type: String
-    Default: groupe1
-    Description: Nom du groupe, pour rendre les noms de buckets uniques
+  ProcessedBucketArn:
+    Type: String
+  CuratedBucketArn:
+    Type: String
+  AthenaResultsBucketArn:
+    Type: String
 
 # ----------------------------------------------------------
 # IAM ROLES 
@@ -61,8 +68,8 @@ Resources:
                   - s3:GetObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt RawBucket.Arn
-                  - !Sub '${RawBucket.Arn}/*'
+                  - !Ref RawBucketArn
+                  - !Sub '${RawBucketArn}/*'
               # Peut lire et écrire dans Processed et Curated
               - Effect: Allow
                 Action:
@@ -71,10 +78,10 @@ Resources:
                   - s3:DeleteObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt ProcessedBucket.Arn
-                  - !Sub '${ProcessedBucket.Arn}/*'
-                  - !GetAtt CuratedBucket.Arn
-                  - !Sub '${CuratedBucket.Arn}/*'
+                  - !Ref ProcessedBucketArn
+                  - !Sub '${ProcessedBucketArn}/*'
+                  - !Ref CuratedBucketArn
+                  - !Sub '${CuratedBucketArn}/*'
 
   # ----------------------------------------------------------
   # DATE LAKE ADMIN ROLE
@@ -128,8 +135,8 @@ Resources:
                   - s3:PutObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt RawBucket.Arn
-                  - !Sub '${RawBucket.Arn}/*'
+                  - !Ref RawBucketArn
+                  - !Sub '${RawBucketArn}/*'
               # Lecture et écriture sur processed et curated (gérer les résultats des jobs Glue)
               - Effect: Allow
                 Action: 
@@ -137,10 +144,10 @@ Resources:
                   - s3:PutObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt ProcessedBucket.Arn
-                  - !Sub '${ProcessedBucket.Arn}/*'
-                  - !GetAtt CuratedBucket.Arn
-                  - !Sub '${CuratedBucket.Arn}/*'
+                  - !Ref ProcessedBucketArn
+                  - !Sub '${ProcessedBucketArn}/*'
+                  - !Ref CuratedBucketArn
+                  - !Sub '${CuratedBucketArn}/*'
               # Accès complet à Glue pour gérer les jobs ETL
               - Effect: Allow
                 Action: glue:*
@@ -177,8 +184,8 @@ Resources:
                   - s3:GetObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt CuratedBucket.Arn
-                  - !Sub '${CuratedBucket.Arn}/*'
+                  - !Ref CuratedBucketArn
+                  - !Sub '${CuratedBucketArn}/*'
               # Athena results bucket : peut lire les résultats des requêtes
               - Effect: Allow
                 Action: 
@@ -186,8 +193,8 @@ Resources:
                   - s3:PutObject
                   - s3:ListBucket
                 Resource:
-                  - !GetAtt AthenaResultsBucket.Arn
-                  - !Sub '${AthenaResultsBucket.Arn}/*'
+                  - !Ref AthenaResultsBucketArn
+                  - !Sub '${AthenaResultsBucketArn}/*'
               # Athena : peut lancer des requêtes SQL
               - Effect: Allow
                 Action:
