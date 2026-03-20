@@ -171,8 +171,6 @@ datalake-athena-results-dev-groupe1/
 | **AWS Glue Data Catalog** | Catalogue centralisé des métadonnées |
 | **AWS Glue ETL Job** | Nettoyage, transformation et conversion Parquet |
 | **Amazon Athena** | Requêtes SQL sans serveur sur S3 |
-| **Amazon QuickSight** | Dashboards et visualisation |
-| **AWS IAM** | Gestion des accès et sécurité |
 | **AWS CloudFormation** | Infrastructure as Code |
 
 ---
